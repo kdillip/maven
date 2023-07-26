@@ -6,4 +6,8 @@ metadata:
  namespace: dillip-n
  label: 
   type: proxy
-
+spec: 
+ replicas: 3
+ selector: 
+  matchLabels: 
+   type: proxy 
