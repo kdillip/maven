@@ -1,0 +1,8 @@
+---
+- host: all
+  task:
+   name: install application
+   apt: 
+    name: {item.a}
+    state: {item.b}
+    update_cache: {item.b}
