@@ -18,14 +18,6 @@ pipeline
             }
         }
         
-        stage('Continuoustesting')
-        {
-            steps
-            {
-                 echo "git 'https://github.com/intelliqittrainings/FunctionalTesting.git'"
-        echo "sh 'java -jar /home/ubuntu/.jenkins/workspace/ScriptedPipeline/testing.jar'"
-            }
-        }
         stage('ContinuousDelivery')
         {
             steps
