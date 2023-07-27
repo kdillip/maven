@@ -9,7 +9,7 @@ pipeline
         {
             steps
             {
-                git 'https://github.com/kdillip/maven.git'
+                git branch: 'Dev', url: 'https://github.com/kdillip/maven.git'
             }
         }
         stage('ContinuosBuild')
