@@ -7,7 +7,7 @@ pipeline
         {
             steps
             {
-                git 'https://github.com/intelliqittrainings/maven.git'
+               echo "git 'https://github.com/intelliqittrainings/maven.git'"
             }
         }
         stage('ContinuosBuild')
@@ -21,23 +21,23 @@ pipeline
         {
             steps
             {
-                 deploy adapters: [tomcat9(credentialsId: 'd9114eb1-5a03-46e4-a038-7ad5a03145d9', path: '', url: 'http://172.31.93.113:8080')], contextPath: 'qaapp', war: '**/*.war'
+                echo "deploy adapters: [tomcat9(credentialsId: 'd9114eb1-5a03-46e4-a038-7ad5a03145d9', path: '', url: 'http://172.31.93.113:8080')], contextPath: 'qaapp', war: '**/*.war'"
             }
         }
         stage('Continuoustesting')
         {
             steps
             {
-                 git 'https://github.com/intelliqittrainings/FunctionalTesting.git'
-        sh 'java -jar /home/ubuntu/.jenkins/workspace/ScriptedPipeline/testing.jar'
+                 echo "git 'https://github.com/intelliqittrainings/FunctionalTesting.git'
+        sh 'java -jar /home/ubuntu/.jenkins/workspace/ScriptedPipeline/testing.jar'"
             }
         }
         stage('ContinuousDelivery')
         {
             steps
             {
-                   input message: 'Waiting for approval from the DM!', submitter: 'srinivas'
-        deploy adapters: [tomcat9(credentialsId: 'd9114eb1-5a03-46e4-a038-7ad5a03145d9', path: '', url: 'http://172.31.82.109:8080')], contextPath: 'prodapp', war: '**/*.war'
+                   echo "input message: 'Waiting for approval from the DM!', submitter: 'srinivas'
+        deploy adapters: [tomcat9(credentialsId: 'd9114eb1-5a03-46e4-a038-7ad5a03145d9', path: '', url: 'http://172.31.82.109:8080')], contextPath: 'prodapp', war: '**/*.war'"
             }
         }
     }
