@@ -1,0 +1,17 @@
+pipeline
+{
+    agent any
+    stages
+    {
+        stage('ContinuosDownload')
+        {
+            steps
+            {
+                git 'https://github.com/intelliqittrainings/maven.git'
+            }
+        }
+        stage('ContinuosBuild')
+        {
+            steps
+            {
+                sh 'mvn package'
