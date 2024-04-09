@@ -1,0 +1,14 @@
+---
+- name: install nginx
+  hosts: all
+  tasks:
+   - name: install application
+     docker_container:
+      name: nginx_container
+      image: rdillip/nginx
+      ports:
+       - 9898:80
+
+~
+~
+~
